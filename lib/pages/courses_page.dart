@@ -18,7 +18,7 @@ class CoursesPage extends StatelessWidget {
     ),
     CourseModel(
       title: 'Dart For Beginners',
-      instructor: 'Kallol Das Kushol',
+      instructor: 'Hira Sir',
       priceType: 'Free',
       description:
           'Understand variables, functions, loops, and object-oriented basics.',

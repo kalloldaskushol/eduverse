@@ -59,16 +59,6 @@ class CourseDetailsPage extends StatelessWidget {
                     ),
                   ],
                 ),
-                Chip(
-                  backgroundColor: _chipBackgroundColor(course.priceType),
-                  label: Text(
-                    course.priceType,
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
                 const SizedBox(height: 16),
                 Text(
                   'Instructor: ${course.instructor}',
