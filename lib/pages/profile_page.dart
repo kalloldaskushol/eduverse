@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import 'package:eduverse/auth/auth_services.dart';
 import 'package:eduverse/db/profile_db.dart';
-import 'package:eduverse/widgets/empty_state_widget.dart';
 import 'package:eduverse/widgets/info_card.dart';
 
 class ProfilePage extends StatelessWidget {
@@ -20,10 +19,33 @@ class ProfilePage extends StatelessWidget {
         final profile = snapshot.data;
 
         if (profile == null) {
-          return const EmptyStateWidget(
-            title: 'Profile not found',
-            message: 'Complete registration first to see your profile.',
-            icon: Icons.person_search_outlined,
+          return const Center(
+            child: Padding(
+              padding: EdgeInsets.all(24),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(
+                    Icons.person_search_outlined,
+                    size: 60,
+                    color: Colors.indigo,
+                  ),
+                  SizedBox(height: 16),
+                  Text(
+                    'Profile not found',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(height: 8),
+                  Text(
+                    'Complete registration first to see your profile.',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontSize: 15, color: Colors.black),
+                  ),
+                ],
+              ),
+            ),
           );
         }
 

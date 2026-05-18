@@ -1,16 +1,12 @@
 import 'package:flutter/material.dart';
 
 import 'package:eduverse/models/course_model.dart';
-import 'package:eduverse/widgets/empty_state_widget.dart';
 import 'package:eduverse/pages/course_details_page.dart';
 
 class CoursesPage extends StatelessWidget {
   final String fullName;
 
-  const CoursesPage({
-    super.key,
-    required this.fullName,
-  });
+  const CoursesPage({super.key, required this.fullName});
 
   static const List<CourseModel> _courses = [
     CourseModel(
@@ -79,10 +75,29 @@ class CoursesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (_courses.isEmpty) {
-      return const EmptyStateWidget(
-        title: 'No courses available',
-        message: 'Sample courses will appear here.',
-        icon: Icons.menu_book_outlined,
+      return const Center(
+        child: Padding(
+          padding: EdgeInsets.all(24),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Icon(Icons.menu_book_outlined, size: 60, color: Colors.indigo),
+              SizedBox(height: 16),
+              Text(
+                'No courses available',
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
+              SizedBox(height: 8),
+              Text(
+                'Sample courses will appear here.',
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 15, color: Colors.black),
+              ),
+            ],
+          ),
+        ),
       );
     }
 
@@ -111,10 +126,7 @@ class CoursesPage extends StatelessWidget {
               const SizedBox(height: 6),
               Text(
                 'Hello, $fullName',
-                style: const TextStyle(
-                  fontSize: 15,
-                  color: Colors.white70,
-                ),
+                style: const TextStyle(fontSize: 15, color: Colors.white70),
               ),
             ],
           ),
@@ -149,8 +161,9 @@ class CoursesPage extends StatelessWidget {
                           ),
                         ),
                         Chip(
-                          backgroundColor:
-                              _chipBackgroundColor(course.priceType),
+                          backgroundColor: _chipBackgroundColor(
+                            course.priceType,
+                          ),
                           side: BorderSide.none,
                           label: Text(
                             course.priceType,

@@ -65,7 +65,7 @@ class _RegisterPageState extends State<RegisterPage> {
           const SnackBar(content: Text('Registration successful!')),
         );
 
-        Navigator.pushAndRemoveUntil(
+        Navigator.pushAndRemoveUntil( //! So user cannot go back to RegisterPage after registration.
           context,
           MaterialPageRoute(builder: (context) => const AuthGate()),
           (route) => false,

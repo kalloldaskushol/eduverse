@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:eduverse/auth/auth_services.dart';
 import 'package:eduverse/db/questions_db.dart';
 import 'package:eduverse/widgets/custom_text_field.dart';
-import 'package:eduverse/widgets/empty_state_widget.dart';
 
 class MyQuestionsPage extends StatefulWidget {
   const MyQuestionsPage({super.key});
@@ -124,9 +123,9 @@ class _MyQuestionsPageState extends State<MyQuestionsPage> {
                   );
                 } catch (e) {
                   if (mounted) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text(e.toString())),
-                    );
+                    ScaffoldMessenger.of(
+                      context,
+                    ).showSnackBar(SnackBar(content: Text(e.toString())));
                   }
                 }
               },
@@ -157,17 +156,48 @@ class _MyQuestionsPageState extends State<MyQuestionsPage> {
       );
     } catch (e) {
       if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(e.toString())),
-        );
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(SnackBar(content: Text(e.toString())));
       }
     }
+  }
+
+  Widget _buildEmptyState({
+    required String title,
+    required String message,
+    required IconData icon,
+  }) {
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.all(24),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(icon, size: 60, color: Colors.indigo),
+            const SizedBox(height: 16),
+            Text(
+              title,
+              textAlign: TextAlign.center,
+              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 8),
+            Text(
+              message,
+              textAlign: TextAlign.center,
+              style: const TextStyle(fontSize: 15, color: Colors.black),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     if (_userId == null) {
-      return const EmptyStateWidget(
+      return _buildEmptyState(
         title: 'Login required',
         message: 'Please log in to manage your questions.',
         icon: Icons.lock_outline,
@@ -196,7 +226,7 @@ class _MyQuestionsPageState extends State<MyQuestionsPage> {
               final questions = snapshot.data ?? [];
 
               if (questions.isEmpty) {
-                return const EmptyStateWidget(
+                return _buildEmptyState(
                   title: 'No questions added yet',
                   message:
                       'Tap the button below to create your first question.',
@@ -226,20 +256,13 @@ class _MyQuestionsPageState extends State<MyQuestionsPage> {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           IconButton(
-                            onPressed: () => _openQuestionDialog(
-                              question: question,
-                            ),
-                            icon: const Icon(
-                              Icons.edit,
-                              color: Colors.indigo,
-                            ),
+                            onPressed: () =>
+                                _openQuestionDialog(question: question),
+                            icon: const Icon(Icons.edit, color: Colors.indigo),
                           ),
                           IconButton(
                             onPressed: () => _deleteQuestion(question['id']),
-                            icon: const Icon(
-                              Icons.delete,
-                              color: Colors.red,
-                            ),
+                            icon: const Icon(Icons.delete, color: Colors.red),
                           ),
                         ],
                       ),
@@ -261,10 +284,7 @@ class _MyQuestionsPageState extends State<MyQuestionsPage> {
             onPressed: () => _openQuestionDialog(),
             child: const Text(
               'Add New Question',
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-              ),
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
           ),
         ),

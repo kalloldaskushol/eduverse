@@ -27,7 +27,7 @@ class ProfileDb {
         .from('profiles')
         .select()
         .eq('id', user.id)
-        .maybeSingle();
+        .maybeSingle(); // Use maybeSingle to avoid exceptions if no record is found
 
     if (response == null) {
       return null;
