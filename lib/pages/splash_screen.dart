@@ -1,7 +1,5 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
-
 import '../auth/auth_gate.dart';
 
 class SplashScreen extends StatefulWidget {

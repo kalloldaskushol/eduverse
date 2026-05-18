@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../auth/auth_services.dart';
-import '../db/questions_db.dart';
-import '../widgets/custom_text_field.dart';
-import '../widgets/empty_state_widget.dart';
+import 'package:eduverse/auth/auth_services.dart';
+import 'package:eduverse/db/questions_db.dart';
+import 'package:eduverse/widgets/custom_text_field.dart';
+import 'package:eduverse/widgets/empty_state_widget.dart';
 
 class MyQuestionsPage extends StatefulWidget {
   const MyQuestionsPage({super.key});

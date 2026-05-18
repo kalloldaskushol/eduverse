@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../auth/auth_services.dart';
-import '../db/profile_db.dart';
-import '../widgets/empty_state_widget.dart';
-import '../widgets/info_card.dart';
+import 'package:eduverse/auth/auth_services.dart';
+import 'package:eduverse/db/profile_db.dart';
+import 'package:eduverse/widgets/empty_state_widget.dart';
+import 'package:eduverse/widgets/info_card.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});

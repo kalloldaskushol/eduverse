@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../models/course_model.dart';
+import 'package:eduverse/models/course_model.dart';
 
 class CourseDetailsPage extends StatelessWidget {
   final CourseModel course;

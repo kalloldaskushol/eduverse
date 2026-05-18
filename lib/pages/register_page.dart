@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../auth/auth_gate.dart';
-import '../auth/auth_services.dart';
-import '../db/profile_db.dart';
-import '../widgets/custom_text_field.dart';
+import 'package:eduverse/auth/auth_gate.dart';
+import 'package:eduverse/auth/auth_services.dart';
+import 'package:eduverse/db/profile_db.dart';
+import 'package:eduverse/widgets/custom_text_field.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});

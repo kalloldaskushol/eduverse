@@ -7,7 +7,7 @@ class AuthServices {
     String email,
     String password,
   ) async {
-    return _supabase.auth.signInWithPassword(
+    return _supabase.auth.signInWithPassword( // Its a building method for signing in with email and password.
       email: email,
       password: password,
     );
@@ -27,6 +27,7 @@ class AuthServices {
     await _supabase.auth.signOut();
   }
 
+  /// Gets the currently authenticated user. return type is User? because it can be null if no user is logged in.
   User? getCurrentUser() {
     return _supabase.auth.currentUser;
   }

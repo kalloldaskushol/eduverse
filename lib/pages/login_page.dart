@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../auth/auth_services.dart';
-import '../widgets/custom_text_field.dart';
-import 'register_page.dart';
+import 'package:eduverse/auth/auth_services.dart';
+import 'package:eduverse/widgets/custom_text_field.dart';
+import 'package:eduverse/pages/register_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -15,6 +15,7 @@ class _LoginPageState extends State<LoginPage> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
 
+  // Dispose controllers to free resources
   @override
   void dispose() {
     _emailController.dispose();

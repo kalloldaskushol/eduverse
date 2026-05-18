@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../models/course_model.dart';
-import '../widgets/empty_state_widget.dart';
-import 'course_details_page.dart';
+import 'package:eduverse/models/course_model.dart';
+import 'package:eduverse/widgets/empty_state_widget.dart';
+import 'package:eduverse/pages/course_details_page.dart';
 
 class CoursesPage extends StatelessWidget {
   final String fullName;

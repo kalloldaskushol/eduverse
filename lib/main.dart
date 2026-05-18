@@ -6,7 +6,6 @@ import 'config/supabase_config.dart';
 import 'pages/splash_screen.dart';
 
 Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
 
   await Supabase.initialize(
     url: SupabaseConfig.supabaseUrl,

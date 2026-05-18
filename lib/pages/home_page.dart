@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../db/profile_db.dart';
-import 'courses_page.dart';
-import 'my_questions_page.dart';
-import 'profile_page.dart';
+import 'package:eduverse/db/profile_db.dart';
+import 'package:eduverse/pages/courses_page.dart';
+import 'package:eduverse/pages/my_questions_page.dart';
+import 'package:eduverse/pages/profile_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
